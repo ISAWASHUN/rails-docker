@@ -1,24 +1,23 @@
-# README
+# 環境構築の方法
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. 任意のディレクトリでgit cloneを行いローカルで開発できるようにする。
+    ```
+    git clone <リポジトリ名>
+    ```
+2. docker compose upでdockerを起動する。
+   ```
+   docker compose up -d
+   ```
+3. dockerのコンテナ内に入る
+    ```
+    docker compose exec web bash
+    ```
+4. データベースを作り、migrateする
+    ```
+      rails db:create
+      rails db:migrate
+    ```
+5. サーバーを起動する
+    ```
+    rails s -b 0.0.0.0
+    ```
